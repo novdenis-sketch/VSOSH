@@ -73,9 +73,6 @@ def obfuscate_numbers(lines):
                 if is_part_of_variable:
                     new_line += number_str
                     continue
-                if int(number_str) <= 2:
-                    new_line += number_str
-                    continue
                 operation1, operation2 = random.choice(OPERATIONS)
                 num = random.randint(1, 1000)
                 ist = int(number_str)
@@ -201,7 +198,7 @@ obfuscate_string(lines)
 
 new_lines=add_more_garbage(new_lines)
 new_lines =add_anti_debug(new_lines)
-with open("new.c", 'w') as file:
+with open("obfuscate.c", 'w') as file:
     file.writelines(new_lines)
 
 print("Файл успешно обработан!")
